@@ -1,5 +1,5 @@
-- 👋 Hi, I’m @Mehregan-Gogina
-- 👀 I’m interested in Machine Learning
+- 👋 Hi, I’m @Mehregan
+<!--- 👀 I’m interested in Machine Learning --->
 - 🌱 I’m currently learning c++
 - 💞️ I’m looking to collaborate on NOTHING!
 - 📫 How to reach me: mehregangogina@gmail.com
