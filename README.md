@@ -1,7 +1,7 @@
 - 👋 Hi, I’m @Mehregan
 - 🌱 I’m currently learning c++
 - 📫 How to reach me: mehregangogina@gmail.com
-- https://t.me/Mehregan_Alidadi
+- Telegram: https://t.me/Mehregan14
 <!--- 👀 I’m interested in Machine Learning --->
 
 <!--- 💞️ I’m looking to collaborate on NOTHING!--->
