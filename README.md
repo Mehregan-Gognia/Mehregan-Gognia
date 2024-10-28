@@ -1,12 +1,21 @@
-- 👋 Hi, I’m @Mehregan
-- 🌱 I’m currently learning c++
-- 📫 How to reach me: mehregangogina@gmail.com
-- Telegram: https://t.me/Mehregan14
-<!--- 👀 I’m interested in Machine Learning --->
+About Me 👋
 
-<!--- 💞️ I’m looking to collaborate on NOTHING!--->
+Hey there! I'm Mehregan, a Computer Engineering student at Isfahan University of Technology. I love exploring the world of technology, from game development to cybersecurity. I'm passionate about writing clean code, building cool projects, and constantly pushing the boundaries of what I can create.
+💡 What I'm Into:
 
-<!---
-Mehregan-Gogina/Mehregan-Gogina is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+    🌐 Learning and growing with Rust.
+    🎮 Dreaming of making impactful games or contributing to the security field.
+    📊 Databases, Algorithms, and more geeky things that make computers tick.
+
+🌍 Languages I'm Learning:
+
+    💻 Programming Languages I Use:
+
+    Rust – My favorite for building safe and fast software(it is a fantastic beast).
+    C/C++ – Diving into low-level programming.
+    SQL – Handling databases with structured queries.
+    
+📬 Contact Me:
+
+    Email: mehregangogina@gmail.com
+    Telegram: https://t.me/Mehregan_Gogona
