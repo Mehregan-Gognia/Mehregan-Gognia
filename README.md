@@ -21,5 +21,5 @@ Hey there! I'm Mehregan, a Computer Engineering student at Isfahan University of
 - **Telegram**: [@Mehregan_Gogona](https://t.me/Mehregan_Gogona)
 
 ## 📈 GitHub Stats
-![Mehregan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Mehregan-Gogina&show_icons=true&count_private=true&theme=dracula)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Mehregan-Gogina&layout=compact&theme=dracula)
+![Mehregan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Mehregan-Gogona&show_icons=true&count_private=true&theme=dracula)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Mehregan-Gogona&layout=compact&theme=dracula)
