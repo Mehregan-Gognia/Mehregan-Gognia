@@ -4,121 +4,308 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MEHREGAN | Systems & Product Engineer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Mehregan | Portfolio</title>
   <style>
+    /* --- NATIVE CSS VARIABLES & RESET --- */
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #131a2c;
+      --border-color: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #06b6d4;
+      --accent-glow: rgba(6, 182, 212, 0.15);
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: #0f172a;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.6;
+      padding: 4rem 2rem;
+    }
+
+    /* --- LAYOUT CONTAINER --- */
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    /* --- HEADER SECTION --- */
+    header {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 2.5rem;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .meta-title h1 {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: #ffffff;
+    }
+
+    .meta-title .subtitle {
+      color: var(--accent);
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .meta-title p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 550px;
+      margin-top: 0.75rem;
+    }
+
+    .links-box {
+      font-family: monospace;
+      font-size: 0.8rem;
+    }
+
+    .links-box a {
+      color: var(--text-muted);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .links-box a:hover {
+      color: var(--accent);
+    }
+
+    /* --- SECTION UNIVERSALS --- */
+    section {
+      margin-top: 3.5rem;
+    }
+
+    section h2 {
+      font-family: monospace;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* --- GRID MATRIX (SKILLS) --- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1xl;
+      gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .skill-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+    }
+
+    .skill-card h3 {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* --- TIMELINE FLOW (PROJECTS) --- */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .project-node {
+      border-left: 2px solid var(--border-color);
+      padding-left: 1.25rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .project-node:hover {
+      border-color: var(--accent);
+    }
+
+    .node-tag {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .project-node h3 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-top: 0.25rem;
+      transition: color 0.2s ease;
+    }
+
+    .project-node:hover h3 {
+      color: var(--accent);
+    }
+
+    .project-node p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .badge {
+      font-family: monospace;
+      font-size: 0.75rem;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      margin-top: 6rem;
+      border-top: 1px solid var(--border-color);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
     }
   </style>
 </head>
 
-<body class="text-slate-300 antialiased selection:bg-emerald-500/30 selection:text-emerald-400">
+<body>
 
-  <div class="max-w-4xl mx-auto px-6 py-16">
+  <div class="container">
 
-    <header
-      class="flex flex-col md:flex-row items-start md:items-center justify-between border-b border-slate-800 pb-12 gap-6">
-      <div>
-        <h1 class="text-4xl font-black tracking-tight text-white md:text-5xl">MEHREGAN</h1>
-        <p class="text-lg font-semibold text-emerald-400 mt-2">Computer Engineering & Product Architect</p>
-        <p class="text-sm text-slate-400 mt-1 max-w-xl leading-relaxed">
-          Building secure distributed backends, low-level embedded pipelines, and highly responsive interactive web
-          architectures. Focused on turning complex data logic into scalable products.
+    <header>
+      <div class="meta-title">
+        <h1>MEHREGAN ALIDADI</h1>
+        <div class="subtitle">Computer Engineering</div>
+        <p>
+          Developing secure distributed backends, bare-metal embedded drivers, and responsive interfaces. Turning
+          complex programmatic logic into functional web products.
         </p>
       </div>
-      <div
-        class="flex flex-row md:flex-col gap-3 font-mono text-xs w-full md:w-auto border-t md:border-t-0 border-slate-800 pt-4 md:pt-0">
-        <a href="https://github.com/mehregan-gognia"
-          class="text-slate-400 hover:text-emerald-400 transition-colors flex items-center gap-2">
-          <span>GitHub: github.com/Mehregan-Gognia</span>
-        </a>
-        <div class="text-slate-400 flex items-center gap-2">
-          <span>Location: Remote / International</span>
-        </div>
+      <div class="links-box">
+        <a href="https://github.com/Mehregan-Gognia" target="_blank">🔗 GitHub Profile</a>
+        <div>📍 Iran / Isfahan</div>
       </div>
     </header>
 
-    <section class="mt-12">
-      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 font-mono">Technical Core</h2>
-      <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-6">
-        <div class="rounded-xl bg-slate-800/40 p-5 border border-slate-800/80">
-          <h3 class="text-sm font-bold text-white font-mono text-emerald-400">Languages</h3>
-          <p class="mt-2 text-sm text-slate-400 leading-relaxed">Python, C/C++, Go, TypeScript, SQL, Bash</p>
+    <section>
+      <h2>System Competencies</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <p>Python, C/C++, Rust, Bash, SQL, TypeScript</p>
         </div>
-        <div class="rounded-xl bg-slate-800/40 p-5 border border-slate-800/80">
-          <h3 class="text-sm font-bold text-white font-mono text-emerald-400">Frameworks & Tools</h3>
-          <p class="mt-2 text-sm text-slate-400 leading-relaxed">FastAPI, Next.js, PostgreSQL, SQLAlchemy, Docker, Git
-          </p>
+        <div class="skill-card">
+          <h3>Frameworks</h3>
+          <p>Qt, FastAPI, Next.js, SQLAlchemy, PostgreSQL, MSSQL, Tailwind</p>
         </div>
-        <div class="rounded-xl bg-slate-800/40 p-5 border border-slate-800/80">
-          <h3 class="text-sm font-bold text-white font-mono text-emerald-400">Specialized Systems</h3>
-          <p class="mt-2 text-sm text-slate-400 leading-relaxed">STM32 Embedded Systems, Computer Vision automation,
-            Linux environments</p>
+        <div class="skill-card">
+          <h3>Hardware & OS</h3>
+          <p>Linux, STM32, Computer Vision</p>
         </div>
       </div>
     </section>
+    
 
-    <section class="mt-16">
-      <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 font-mono">Selected Projects</h2>
-      <div class="mt-6 space-y-8">
+    <section>
+      <h2>Project Log</h2>
+      <div class="project-list">
 
-        <div
-          class="group relative flex flex-col items-start border-l-2 border-slate-800 hover:border-emerald-500 pl-4 transition-colors">
-          <div class="text-xs font-mono text-slate-500">Full-Stack Production Blueprint</div>
-          <h3 class="text-lg font-bold text-white mt-1 group-hover:text-emerald-400 transition-colors">Project
-            Operations Hub</h3>
-          <p class="mt-2 text-sm text-slate-400 leading-relaxed">
-            Engineered a container-ready secure full-stack platform. Built an asynchronous FastAPI data engine linked to
-            a relational PostgreSQL database layer, protected by a custom cryptographic JWT authentication module.
-            Designed a highly responsive single-page management control dashboard wrapper using TypeScript and Next.js.
+        <div class="project-node">
+          <div class="node-tag">Asynchronous Web Application</div>
+          <h3>Project Operations Hub</h3>
+          <p>
+            Engineered an isolated full-stack system layout. Configured a concurrent FastAPI application server backed
+            by an asynchronous PostgreSQL connection layer via SQLAlchemy. Built a client-side management web interface
+            utilizing Next.js, managing authorization tokens natively via browser memory checkpoints.
           </p>
-          <div
-            class="mt-3 flex flex-wrap gap-2 text-xs font-mono text-slate-400 bg-slate-800/30 px-2 py-1 rounded border border-slate-800 w-fit">
-            FastAPI · Next.js · PostgreSQL · JWT · TailwindCSS
+          <div class="tech-badges">
+            <span class="badge">FastAPI</span>
+            <span class="badge">Next.js</span>
+            <span class="badge">PostgreSQL</span>
+            <span class="badge">JWT</span>
           </div>
         </div>
 
-        <div
-          class="group relative flex flex-col items-start border-l-2 border-slate-800 hover:border-emerald-500 pl-4 transition-colors">
-          <div class="text-xs font-mono text-slate-500">Media Optimization Pipeline</div>
-          <h3 class="text-lg font-bold text-white mt-1 group-hover:text-emerald-400 transition-colors">Programmatic
-            Automation Engines</h3>
-          <p class="mt-2 text-sm text-slate-400 leading-relaxed">
-            Authored a series of native optimization utility scripts designed to automate heavy system transformations.
-            Developed headless data routines combining Python pipelines with low-level FFmpeg configurations to handle
-            high-fidelity matrix encoding, video compression arrays, and algorithmic media format rendering smoothly.
+        <div class="project-node">
+          <div class="node-tag">Automation Systems</div>
+          <h3>Headless Media Processing Pipelines</h3>
+          <p>
+            Designed custom automation script modules linking native shell wrappers with optimized FFmpeg encoding maps.
+            Automated algorithmic video rendering structures, background matrix calculations, and multi-pass palletized
+            compressions directly through terminal run-commands.
           </p>
-          <div
-            class="mt-3 flex flex-wrap gap-2 text-xs font-mono text-slate-400 bg-slate-800/30 px-2 py-1 rounded border border-slate-800 w-fit">
-            Python · FFmpeg · Pipeline Engineering · Bash Scripting
+          <div class="tech-badges">
+            <span class="badge">Python</span>
+            <span class="badge">FFmpeg</span>
+            <span class="badge">Bash</span>
+            <span class="badge">Linux</span>
           </div>
         </div>
 
-        <div
-          class="group relative flex flex-col items-start border-l-2 border-slate-800 hover:border-emerald-500 pl-4 transition-colors">
-          <div class="text-xs font-mono text-slate-500">Hardware & Computer Vision Processing</div>
-          <h3 class="text-lg font-bold text-white mt-1 group-hover:text-emerald-400 transition-colors">Bare-Metal
-            Firmware & Spatial Analysis</h3>
-          <p class="mt-2 text-sm text-slate-400 leading-relaxed">
-            Constructed custom embedded hardware drivers utilizing STM32 microcontrollers to interface directly with
-            communication arrays and parallel visual displays. Integrated physical telemetry setups alongside local
-            computational matrix transformations, computer vision morphology adjustments, and image segmentation
-            protocols.
+        <div class="project-node">
+          <div class="node-tag">Embedded Robotics & Vision</div>
+          <h3>Bare-Metal Control Loops</h3>
+          <p>
+            Developed low-level driver configurations for STM32 hardware blocks to align sensory telemetry data streams.
+            Programmed automated image manipulation algorithms utilizing image morphology matrix erosion and Otsu
+            threshold segmentations.
           </p>
-          <div
-            class="mt-3 flex flex-wrap gap-2 text-xs font-mono text-slate-400 bg-slate-800/30 px-2 py-1 rounded border border-slate-800 w-fit">
-            C/C++ · STM32 Microcontrollers · Computer Vision · Embedded Systems
+          <div class="tech-badges">
+            <span class="badge">C/C++</span>
+            <span class="badge">STM32 Hardware</span>
+            <span class="badge">OpenCV Matrix</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <footer
-      class="mt-24 border-t border-slate-800 pt-8 flex justify-between items-center text-xs font-mono text-slate-500">
-      <div>Open-Source Proof of Work</div>
-      <div>2026 Layout</div>
+    <footer>
+      <div>Pure HTML/CSS Deployment</div>
+      <div>2026</div>
     </footer>
 
   </div>
