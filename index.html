@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mehregan | Portfolio</title>
+  <meta name="description"
+    content="Mehregan Alidadi — Computer Engineering student building secure distributed backends, bare-metal embedded drivers, and responsive interfaces.">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2'%3E%3Cpolyline points='16 18 22 12 16 6'/%3E%3Cpolyline points='8 6 2 12 8 18'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     /* --- NATIVE CSS VARIABLES & RESET --- */
@@ -368,14 +372,17 @@
       -webkit-user-drag: none;
     }
 
-    .avatar-shield {
+    .avatar-fallback::after {
+      content: "MA";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: transparent;
-      z-index: 10;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: var(--accent);
     }
 
     /* --- TYPOGRAPHY CONTROLS (THEME TRACKING) --- */
@@ -595,7 +602,8 @@
 
     <div class="top-bar">
       <label class="switch">
-        <input id="theme-toggle-input" type="checkbox" checked onchange="toggleTheme()" />
+        <input id="theme-toggle-input" type="checkbox" checked onchange="toggleTheme()"
+          aria-label="Toggle dark and light theme" />
         <div class="slider round">
           <div class="sun-moon">
             <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
@@ -666,8 +674,8 @@
       <aside class="profile-sidebar">
 
         <div class="avatar-wrapper">
-          <img src="profile.jpg" alt="Mehregan" class="avatar-img">
-          <div class="avatar-shield"></div>
+          <img src="profile.jpg" alt="Mehregan" class="avatar-img"
+            onerror="this.style.display='none'; this.parentElement.classList.add('avatar-fallback');">
         </div>
 
         <div class="meta-title">
@@ -1078,16 +1086,36 @@
 
     </div>
     <footer>
-      <div>Pure HTML/CSS Deployment</div>
+      <div>Single-File HTML/CSS/JS Deployment</div>
       <div>2026</div>
     </footer>
 
   </div>
 
   <script>
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
+    const THEME_KEY = 'theme-preference';
+    const toggleInput = document.getElementById('theme-toggle-input');
+
+    function applyTheme(isLight) {
+      document.body.classList.toggle('light-theme', isLight);
+      toggleInput.checked = !isLight; // checked = dark (moon), unchecked = light (sun)
     }
+
+    function getInitialIsLight() {
+      const stored = localStorage.getItem(THEME_KEY);
+      if (stored === 'light') return true;
+      if (stored === 'dark') return false;
+      // No saved preference yet — fall back to the OS/browser setting.
+      return window.matchMedia('(prefers-color-scheme: light)').matches;
+    }
+
+    function toggleTheme() {
+      const isLight = !toggleInput.checked; // checkbox just flipped, so read its new state
+      document.body.classList.toggle('light-theme', isLight);
+      localStorage.setItem(THEME_KEY, isLight ? 'light' : 'dark');
+    }
+
+    applyTheme(getInitialIsLight());
   </script>
 </body>
 
