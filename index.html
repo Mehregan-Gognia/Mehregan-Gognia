@@ -39,6 +39,12 @@
       padding: 0;
     }
 
+    /* --- SMOOTH SCROLL INTEGRATION --- */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 3rem;
+    }
+
     body {
       background-color: var(--bg-primary);
       color: var(--text-main);
@@ -406,6 +412,54 @@
       margin-top: 1rem;
     }
 
+    /* --- SIDEBAR TRACKING NAVIGATION CONTROLS --- */
+    .sidebar-nav {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .nav-item {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-family: monospace;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-item:hover {
+      color: var(--accent);
+      background-color: rgba(6, 182, 212, 0.05);
+    }
+
+    /* High-contrast targeted focus highlight tracking variables */
+    .nav-item.active {
+      color: var(--accent);
+      background-color: var(--accent-glow);
+      font-weight: 600;
+    }
+
+    .sidebar-nav i {
+      width: 16px;
+      text-align: center;
+    }
+
+    /* --- CONTACT LINKS BOX --- */
+    .links-box {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
     .links-box a,
     .location-tag {
       color: var(--text-muted);
@@ -413,24 +467,18 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
-      margin-bottom: 0.65rem;
       transition: color 0.2s ease;
-      margin-top: 1rem;
+      margin-top: 0.85rem;
     }
 
     .links-box a:hover {
       color: var(--accent);
     }
 
-    /* Keeps all icons perfectly centered horizontally */
     .links-box i {
       width: 18px;
       text-align: center;
       font-size: 1.1rem;
-    }
-
-    .location-tag {
-      margin-top: 1rem;
     }
 
     /* --- SECTION UNIVERSALS --- */
@@ -685,32 +733,27 @@
           </p>
         </div>
 
+        <nav class="sidebar-nav">
+          <a href="#section-education" class="nav-item active"><i class="fa fa-graduation-cap"></i> Education</a>
+          <a href="#section-about" class="nav-item"><i class="fa fa-user"></i> About Me</a>
+          <a href="#section-competencies" class="nav-item"><i class="fa fa-th-large"></i> Competencies</a>
+          <a href="#section-projects" class="nav-item"><i class="fa fa-folder-open"></i> Projects</a>
+        </nav>
+
         <div class="links-box">
-          <a href="https://github.com/Mehregan-Gognia" target="_blank">
-            <i class="fa fa-github"></i> GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/mehregan-gognia/" target="_blank">
-            <i class="fa fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://t.me/mehregan_gognia" target="_blank">
-            <i class="fa fa-paper-plane"></i> Telegram
-          </a>
-          <a href="mailto:mehregangogina@gmail.com">
-            <i class="fa fa-envelope"></i> Email Me
-          </a>
-          <a href="tel:+989941612654">
-            <i class="fa fa-phone"></i> +98 994 161 2654
-          </a>
-          <div class="location-tag">
-            <i class="fa fa-map-marker"></i> Iran / Isfahan
-          </div>
+          <a href="https://github.com/Mehregan-Gognia" target="_blank"><i class="fa fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/mehregan-gognia/" target="_blank"><i class="fa fa-linkedin"></i>
+            LinkedIn</a>
+          <a href="https://t.me/mehregan_gognia" target="_blank"><i class="fa fa-paper-plane"></i> Telegram</a>
+          <a href="mailto:mehregangogina@gmail.com"><i class="fa fa-envelope"></i> Email Me</a>
+          <div class="location-tag"><i class="fa fa-map-marker"></i> Iran / Isfahan</div>
         </div>
 
       </aside>
 
       <main class="content-area">
 
-        <section style="margin-bottom: 4rem;">
+        <section id="section-education" style="margin-bottom: 4rem;">
           <h2>Education</h2>
           <div class="project-list">
             <div class="project-node">
@@ -730,7 +773,31 @@
           </div>
         </section>
 
-        <section>
+        <section id="section-about" style="margin-bottom: 4rem;">
+          <h2>About Me</h2>
+          <div class="project-node"
+            style="border-left-color: var(--accent); background-color: rgba(6, 182, 212, 0.01); padding: 1.5rem; border-radius: 0 0.5rem 0.5rem 0;">
+            <p style="margin-top: 0; margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-main);">
+              I am a Computer Engineering student deeply invested in building deterministic, low-latency infrastructure
+              and
+              high-performance software. My engineering focus spans the entire development stack—from microcontrollers
+              and
+              custom hardware communication protocols to secure concurrent backend engines and modular desktop
+              applications.
+            </p>
+            <p style="margin-top: 0; font-size: 0.95rem; color: var(--text-main);">
+              I thrive on building from the ground up, avoiding heavy abstractions when raw performance, memory
+              efficiency, and
+              rock-solid architecture are paramount. Whether I am writing bare-metal firmware, simulating robotic
+              kinematics,
+              diagnosing complex network transport topologies, or optimization pipelines, I aim for clean, maintainable
+              systems
+              that scale flawlessly.
+            </p>
+          </div>
+        </section>
+
+        <section id="section-competencies" style="margin-bottom: 4rem;">
           <h2>System Competencies</h2>
 
           <div class="competency-group">
@@ -928,7 +995,7 @@
           </div>
         </section>
 
-        <section>
+        <section id="section-projects" style="margin-bottom: 4rem;">
           <h2>Selected Project Log</h2>
           <div class="project-list">
 
@@ -1084,7 +1151,7 @@
 
     </div>
     <footer>
-      <div>Developed by HTML, CSS and a little bit of JS</div>
+      <div>Developed by Me</div>
       <div>2026</div>
     </footer>
 
@@ -1096,24 +1163,51 @@
 
     function applyTheme(isLight) {
       document.body.classList.toggle('light-theme', isLight);
-      toggleInput.checked = !isLight; // checked = dark (moon), unchecked = light (sun)
+      toggleInput.checked = !isLight;
     }
 
     function getInitialIsLight() {
       const stored = localStorage.getItem(THEME_KEY);
       if (stored === 'light') return true;
       if (stored === 'dark') return false;
-      // No saved preference yet — fall back to the OS/browser setting.
       return window.matchMedia('(prefers-color-scheme: light)').matches;
     }
 
     function toggleTheme() {
-      const isLight = !toggleInput.checked; // checkbox just flipped, so read its new state
+      const isLight = !toggleInput.checked;
       document.body.classList.toggle('light-theme', isLight);
       localStorage.setItem(THEME_KEY, isLight ? 'light' : 'dark');
     }
 
     applyTheme(getInitialIsLight());
+
+    /* --- NATIVE SCROLLSPY INTERSECTION TRACKER --- */
+    const sections = document.querySelectorAll('main section');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    // Configuration rules defining exactly when a section transition trips the focus border
+    const observerOptions = {
+      root: null,
+      rootMargin: '-15% 0px -70% 0px', // Evaluates items entering the upper center profile vector
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const targetId = entry.target.getAttribute('id');
+          navItems.forEach(item => {
+            if (item.getAttribute('href') === `#${targetId}`) {
+              item.classList.add('active');
+            } else {
+              item.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
   </script>
 </body>
 
