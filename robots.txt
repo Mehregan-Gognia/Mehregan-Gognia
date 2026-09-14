@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mehregan-gognia.github.io/sitemap.xml
